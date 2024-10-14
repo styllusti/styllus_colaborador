@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h1>Configurações do Site</h1>
+    <form id="settings-form">
+        <label for="background-color">Cor de Fundo:</label>
+        <input type="color" id="background-color" name="background-color">
+
+        <label for="image-url">URL da Imagem de Fundo:</label>
+        <input type="text" id="image-url" name="image-url">
+
+        <button type="submit">Salvar Configurações</button>
+    </form>
+    <div id="preview" style="width: 100%; height: 200px; border: 1px solid #ccc;"></div>
+
+    <script>
+        document.getElementById('settings-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const bgColor = document.getElementById('background-color').value;
+            const imageUrl = document.getElementById('image-url').value;
+
+            // Salvar configurações via AJAX
+            fetch('save_settings.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ bgColor, imageUrl })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Configurações salvas com sucesso!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

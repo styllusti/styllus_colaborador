@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar d-md-none">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mobileMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="goToHome()">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showIcons('iconContainerCursos')">
+                            <i class="fas fa-graduation-cap"></i> Cursos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showIcons('iconContainerRH')">
+                            <i class="fas fa-users"></i> RH
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showIcons('iconContainerUtilitarios')">
+                            <i class="fas fa-tools"></i> Utilitários
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtnMobile">
+                            <i class="fas fa-sign-out-alt"></i> Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex">
+        <nav class="col-md-2 sidebar p-3 d-none d-md-block" id="sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="goToHome()">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showIcons('iconContainerCursos');goToCursos()">
+                        <i class="fas fa-graduation-cap"></i> Cursos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showIcons('iconContainerRH')">
+                        <i class="fas fa-users"></i> RH
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showIcons('iconContainerUtilitarios')">
+                        <i class="fas fa-tools"></i> Utilitários
+                    </a>
+                </li>
+                <li class="nav-item mt-auto text-center">
+                    <a class="nav-link" href="#" id="logoutBtnSidebar">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="col-md-10 p-4" id="contentArea">
+            <h1>Bem-vindo ao Menu</h1>
+            <p>Aqui você encontrará todas as opções disponíveis.</p>
+
+            <div class="row mt-4" id="iconContainerCursos" style="display:none;">
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('curso/curso1.html')">
+                        <i class="fas fa-book"></i>
+                        <p>Curso 1</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('curso/curso2.html')">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <p>Curso 2</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mt-4" id="iconContainerRH" style="display:none;">
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('rh/recrutamento.html')">
+                        <i class="fas fa-user-plus"></i>
+                        <p>Recrutamento</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('rh/beneficios.html')">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <p>Benefícios</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mt-4" id="iconContainerUtilitarios" style="display:none;">
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('utilitarios/confped/confped.html')">
+                        <i class="fas fa-tools"></i>
+                        <p>Conferência de Pedidos</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('utilitarios/envioped/envioped.html')">
+                        <i class="fas fa-paper-plane"></i>
+                        <p>Envio de Pedidos</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center icon-container">
+                    <a href="#" onclick="loadContent('utilitarios/entregaped/entregaped.html')">
+                        <i class="fas fa-truck"></i>
+                        <p>Entrega de Pedidos</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

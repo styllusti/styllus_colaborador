@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Status de Entrega</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Atualizar Status de Entrega</h2>
+        <form id="statusForm">
+            <div class="form-group">
+                <label for="pedido">Número do Pedido:</label>
+                <input type="text" class="form-control" id="pedido" required>
+            </div>
+            <div class="form-group">
+                <label for="entregador">Nome do Entregador:</label>
+                <input type="text" class="form-control" id="entregador" value="" readonly>
+            </div>
+            <div class="form-group">
+                <label for="regiao">Região:</label>
+                <input type="text" class="form-control" id="regiao" required>
+            </div>
+            <div class="form-group">
+                <label for="imagem">Enviar Imagem:</label>
+                <input type="file" class="form-control-file" id="imagem" accept="image/*" capture="camera" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="enviar">Enviar</button>
+        </form>
+        <div id="loading" class="mt-3" style="display:none;">Enviando, por favor aguarde...</div>
+        <div id="resultado" class="mt-3"></div>
+    </div>
+
+    <script src="./entregaped.js"></script>
+    <script>
+        // Quando a página carrega, preenche o campo Nome do Entregador
+        document.addEventListener("DOMContentLoaded", function() {
+            const nomeUsuario = sessionStorage.getItem('nomeUsuario'); // Obtém o nome do usuário da sessão
+            document.getElementById('entregador').value = nomeUsuario; // Preenche o campo correspondente
+        });
+    </script>
+</body>
+</html>
+
+

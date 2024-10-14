@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Conferência de Pedidos</title>
+    <style>
+        h1 {
+            font-size: 35px;
+            margin-bottom: 2%;
+        }
+        .container {
+            margin-top: 5%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input {
+            margin-bottom: 15px;
+        }
+        button {
+            margin-top: 20px;
+        }
+        .nao-listado {
+            color: red;
+        }
+        #loading {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="setDataAtual()">
+    <div class="container">
+        <h1>Conferência de Pedidos</h1>
+        
+        <div class="form-group">
+            <label for="select-cidade">Selecione região:</label>
+            <select class="form-control" id="select-cidade" onchange="habilitarCampos()">
+                <option value="">Selecione</option>
+                <option value="ARU">Araruama</option>
+                <option value="BAN">Bangu</option>
+                <option value="BH">Belo Horizonte - Centro</option>
+                <option value="VN">Belo Horizonte - Venda Nova</option>
+                <option value="BRAS">Brasília</option>
+                <option value="CB">Cabo Frio</option>
+                <option value="CDI">Cachoeiro de Itapemirim</option>
+                <option value="CAG">Campo Grande</option>
+                <option value="CARI">Cariacica</option>
+                <option value="CURIT">Curitiba</option>
+                <option value="DUQ">Duque de Caxias</option>
+                <option value="GO">Goiânia</option>
+                <option value="JUIZ">Juiz de Fora</option>
+                <option value="MACA">Macaé</option>
+                <option value="MADU">Madureira</option>
+                <option value="MAGE">Magé</option>
+                <option value="NIT">Niterói</option>
+                <option value="ZNOR">Norte Shopping</option>
+                <option value="NI">Nova Iguaçu</option>
+                <option value="PETRO">Petrópolis</option>
+                <option value="RIO">Rio de Janeiro</option>
+                <option value="RO">Rio das Ostras</option>
+                <option value="SG">São Gonçalo</option>
+                <option value="SERRA">Serra</option>
+                <option value="TAQ">Taquara</option>
+                <option value="VILA">Vila Velha</option>
+            </select>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="nome-input" placeholder="Digite seu nome" class="form-control" disabled>
+            <input type="date" id="data-input" class="form-control" disabled>
+            <input type="text" id="item-input" placeholder="Digite um código" class="form-control" onkeydown="verificarTecla(event)" disabled>
+            <button class="btn btn-primary" onclick="gerarCSV()">Enviar Conferência</button>
+        </div>
+        
+        <ul id="result-list"></ul>
+        <div id="contador-pedidos">
+            <p id="pedidos-encontrados">Pedidos encontrados: 0</p>
+            <p id="pedidos-nao-encontrados">Pedidos não encontrados: 0</p>
+        </div>
+        <div id="loading" class="mt-3">Enviando, por favor aguarde...</div>
+        <div id="resultado" class="mt-3"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="./confeped.js"></script> <!-- Link para o arquivo JavaScript externo -->
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* Estilos gerais */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilizando a barra lateral */
+.sidebar {
+    background-color: #602d89;
+    color: #ffffff;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    padding: 20px;
+}
+
+/* Estilizando links na barra lateral */
+.sidebar .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #4e1e6a;
+    text-decoration: none;
+}
+
+/* Estilizando a navbar */
+.custom-navbar {
+    background-color: #602d89;
+}
+
+/* Cor dos links da navbar */
+.custom-navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.1em;
+}
+
+/* Cor do botão de sair na navbar */
+.custom-navbar .nav-link#logoutBtn {
+    color: #ffffff;
+}
+
+/* Estilos para a logo */
+.logo {
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+/* Estilos para o botão de sair */
+#logoutBtn {
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #4e1e6a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .custom-navbar {
+        width: 100%;
+    }
+}
+
+/* Estilos para a navbar mobile */
+.custom-navbar .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+.custom-navbar .navbar-nav .nav-link i {
+    color: #ffffff;
+}
+
+/* Estilo adicional para ícones */
+.icon-container {
+    transition: transform 0.3s, color 0.3s;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+.icon-container:hover {
+    transform: scale(1.1);
+    color: #007bff;
+    border: 2px solid #007bff;
+    background-color: #f1f1f1;
+}
+
+.icon-container i {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.icon-container p {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estilos adicionais para os ícones ao passar o mouse */
+.icon-container i:hover {
+    color: #007bff;
+}
+
+/* Mostrar os ícones correspondentes ao menu clicado */
+#submenuCursos:target, #submenuRH:target, #submenuUtilitarios:target {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
