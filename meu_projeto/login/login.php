@@ -20,9 +20,9 @@ if ($conn->connect_error) {
 }
 
 // Verificar se os dados foram enviados
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $username = $_GET['username'];
+    $password = $_GET['password'];
 
     // Consultar o banco de dados
     $sql = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ?";
